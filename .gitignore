@@ -93,6 +93,12 @@ cron_news_update.sh
 cqc_*.py
 auto_news_updater.py
 
+# Large media files (GitHub 100MB limit)
+assets/videos/hero-section.mov
+public/assets/videos/hero-section.mov
+legacy/assets/videos/hero-section.mov
+**/hero-section.mov
+
 # Large Assets
 assets/videos/
 public/assets/videos/
