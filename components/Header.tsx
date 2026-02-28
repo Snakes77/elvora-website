@@ -3,12 +3,14 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { Menu, X } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { COMPANY_INFO } from "@/lib/constants";
 
 export const Header = () => {
     const [isScrolled, setIsScrolled] = useState(false);
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -54,20 +56,61 @@ export const Header = () => {
                 </nav>
 
                 <div className="flex items-center gap-4">
-                    <Link
-                        href="#consultation"
-                        className="hidden sm:block px-5 py-2.5 bg-elvora-teal text-white text-sm font-semibold rounded-full hover:bg-opacity-90 transition-all hover:shadow-lg active:scale-95"
+                    <div className="hidden md:flex items-center gap-4">
+                        <Link
+                            href="#consultation"
+                            className="px-5 py-2.5 bg-elvora-teal text-white text-sm font-semibold rounded-full hover:bg-opacity-90 transition-all hover:shadow-lg active:scale-95"
+                        >
+                            Get Expert Consultation
+                        </Link>
+                        <a
+                            href={`mailto:${COMPANY_INFO.email}`}
+                            className="text-sm font-semibold text-elvora-teal hover:underline underline-offset-4"
+                        >
+                            Email Us
+                        </a>
+                    </div>
+                    <button
+                        className="md:hidden text-zinc-900 p-2 hover:bg-zinc-100 rounded-full transition-colors"
+                        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                        aria-label="Toggle mobile menu"
                     >
-                        Get Expert Consultation
-                    </Link>
-                    <a
-                        href={`mailto:${COMPANY_INFO.email}`}
-                        className="text-sm font-semibold text-elvora-teal hover:underline underline-offset-4"
-                    >
-                        Email Us
-                    </a>
+                        {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                    </button>
                 </div>
             </div>
+
+            {/* Mobile Navigation Overlay */}
+            {isMobileMenuOpen && (
+                <div className="absolute top-full left-0 right-0 bg-white/95 backdrop-blur-md shadow-xl border-t border-zinc-100 flex flex-col p-6 gap-6 md:hidden max-h-[calc(100vh-80px)] overflow-y-auto">
+                    {["Home", "About", "Services", "Testimonials", "Contact"].map((item) => (
+                        <Link
+                            key={item}
+                            href={`#${item.toLowerCase()}`}
+                            className="text-lg font-semibold text-zinc-900 border-b border-zinc-100 pb-4"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                            {item}
+                        </Link>
+                    ))}
+                    <div className="flex flex-col gap-4 mt-2">
+                        <Link
+                            href="#consultation"
+                            className="px-6 py-4 bg-elvora-teal text-white text-center text-base font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                            Get Expert Consultation
+                        </Link>
+                        <a
+                            href={`mailto:${COMPANY_INFO.email}`}
+                            className="text-base text-center font-bold text-elvora-teal py-2"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                            Email Us: {COMPANY_INFO.email}
+                        </a>
+                    </div>
+                </div>
+            )}
         </header>
     );
 };

@@ -51,7 +51,7 @@ export default function WarpShaderHero({
             </div>
 
             <div className="relative z-10 w-full container mx-auto px-6 md:px-12 text-center space-y-10">
-                <h1 className="text-white text-5xl md:text-8xl font-bold tracking-tight text-balance leading-[1.1] drop-shadow-2xl">
+                <h1 className="text-white text-4xl sm:text-5xl md:text-8xl font-bold tracking-tight text-balance leading-[1.1] drop-shadow-2xl">
                     {title}
                 </h1>
 

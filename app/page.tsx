@@ -34,11 +34,11 @@ export default function Home() {
 
                 {/* Floating Stats */}
                 <div className="absolute bottom-0 left-0 w-full translate-y-1/2 z-20 px-4">
-                    <div className="container mx-auto grid grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div className="container mx-auto grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
                         {COMPANY_INFO.stats.map((stat, idx) => (
-                            <div key={idx} className="bg-white dark:bg-zinc-900 shadow-2xl rounded-3xl p-8 border border-zinc-100 dark:border-zinc-800 text-center transform hover:scale-105 transition-all">
-                                <div className="text-4xl font-black text-teal-600 dark:text-teal-400 mb-2">{stat.value}</div>
-                                <div className="text-zinc-500 dark:text-zinc-400 text-sm font-bold uppercase tracking-widest">{stat.label}</div>
+                            <div key={idx} className="bg-white dark:bg-zinc-900 shadow-2xl rounded-3xl p-4 sm:p-6 lg:p-8 border border-zinc-100 dark:border-zinc-800 text-center transform hover:scale-105 transition-all">
+                                <div className="text-3xl sm:text-4xl font-black text-teal-600 dark:text-teal-400 mb-2">{stat.value}</div>
+                                <div className="text-zinc-500 dark:text-zinc-400 text-xs sm:text-sm font-bold uppercase tracking-widest">{stat.label}</div>
                             </div>
                         ))}
                     </div>
