@@ -30,10 +30,9 @@ export const metadata: Metadata = {
         icon: [
             { url: "/favicon.ico" },
             { url: "/icon.png", type: "image/png" },
-            { url: "/icon.svg", type: "image/svg+xml" },
         ],
         apple: [
-            { url: "/icon.png" },
+            { url: "/apple-icon.png", type: "image/png" },
         ],
     },
 };

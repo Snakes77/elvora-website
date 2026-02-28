@@ -2,6 +2,8 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
+
 import { cn } from "@/lib/utils";
 import { COMPANY_INFO } from "@/lib/constants";
 
@@ -25,13 +27,21 @@ export const Header = () => {
             )}
         >
             <div className="container mx-auto flex items-center justify-between text-zinc-900">
-                <Link href="/" className="flex items-center gap-2 group">
-                    <div className="w-10 h-10 bg-elvora-teal text-white flex items-center justify-center rounded-lg font-bold text-xl transition-transform group-hover:scale-110">
-                        EC
+                <Link href="/" className="flex items-center gap-3 group">
+                    <div className="relative w-12 h-12 transition-transform group-hover:scale-105">
+                        <Image
+                            src="/assets/images/elvora-circle-logo.png"
+                            alt="Elvora Consulting Logo"
+                            fill
+                            className="object-contain"
+                            priority
+                        />
                     </div>
                     <div className="flex flex-col">
-                        <h1 className="text-xl font-bold leading-none">{COMPANY_INFO.name.split(" ")[0]} Consulting</h1>
-                        <span className="text-xs text-elvora-teal font-medium tracking-wider uppercase">
+                        <h1 className="text-xl font-bold leading-none tracking-tight text-zinc-900">
+                            {COMPANY_INFO.name.split(" ")[0]} <span className="text-elvora-teal">Consulting</span>
+                        </h1>
+                        <span className="text-[10px] text-zinc-500 font-bold tracking-[0.2em] uppercase mt-1">
                             {COMPANY_INFO.tagline}
                         </span>
                     </div>
