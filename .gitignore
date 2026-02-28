@@ -103,3 +103,4 @@ legacy/assets/videos/hero-section.mov
 # Large Assets
 assets/videos/
 public/assets/videos/
+.vercel
