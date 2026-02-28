@@ -1,18 +1,25 @@
 import { Resend } from 'resend';
 import { NextResponse } from 'next/server';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export async function POST(request: Request) {
-    try {
-        const { firstName, lastName, email, service, message } = await request.json();
+  const resendApiKey = process.env.RESEND_API_KEY;
 
-        const { data, error } = await resend.emails.send({
-            from: `Elvora Contact <${process.env.FROM_EMAIL}>`,
-            to: [process.env.CONTACT_EMAIL || 'melissa@elvoraconsulting.co.uk'],
-            subject: `New Consultation Request: ${service}`,
-            replyTo: email,
-            html: `
+  if (!resendApiKey) {
+    console.error('RESEND_API_KEY is not defined');
+    return NextResponse.json({ error: 'Email service not configured' }, { status: 500 });
+  }
+
+  const resend = new Resend(resendApiKey);
+
+  try {
+    const { firstName, lastName, email, service, message } = await request.json();
+
+    const { data, error } = await resend.emails.send({
+      from: `Elvora Contact <${process.env.FROM_EMAIL}>`,
+      to: [process.env.CONTACT_EMAIL || 'melissa@elvoraconsulting.co.uk'],
+      subject: `New Consultation Request: ${service}`,
+      replyTo: email,
+      html: `
         <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e5e7eb; rounded: 12px;">
           <h2 style="color: #0d9488; margin-top: 0;">New Consultation Request</h2>
           <p><strong>From:</strong> ${firstName} ${lastName} (${email})</p>
@@ -25,14 +32,14 @@ export async function POST(request: Request) {
           <p style="font-size: 12px; color: #6b7280;">This email was sent from the Elvora Consulting contact form.</p>
         </div>
       `,
-        });
+    });
 
-        if (error) {
-            return NextResponse.json({ error }, { status: 500 });
-        }
-
-        return NextResponse.json({ data });
-    } catch (error) {
-        return NextResponse.json({ error: (error as Error).message }, { status: 500 });
+    if (error) {
+      return NextResponse.json({ error }, { status: 500 });
     }
+
+    return NextResponse.json({ data });
+  } catch (error) {
+    return NextResponse.json({ error: (error as Error).message }, { status: 500 });
+  }
 }
