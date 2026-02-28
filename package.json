@@ -1,8 +1,7 @@
 {
-  "name": "elvora-rss-service",
+  "name": "elvora-website",
   "version": "1.0.0",
-  "description": "Simple RSS service for Elvora Consulting",
-  "main": "rss-service.js",
+  "description": "Next.js website for Elvora Consulting",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
