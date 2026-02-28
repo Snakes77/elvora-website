@@ -28,19 +28,8 @@ export const Header = () => {
         >
             <div className="container mx-auto flex items-center justify-between text-zinc-900">
                 <Link href="/" className="flex items-center gap-3 group">
-                    <div className="flex items-center gap-3">
-                        <div className="w-12 h-12 bg-elvora-teal rounded-xl flex items-center justify-center text-white font-black text-xl shadow-lg shadow-teal-500/20 transition-transform group-hover:scale-105">
-                            EC
-                        </div>
-                        <div className="relative w-10 h-10 opacity-60 group-hover:opacity-100 transition-opacity">
-                            <Image
-                                src="/assets/images/elvora-circle-logo.png"
-                                alt="Elvora Consulting Logo"
-                                fill
-                                className="object-contain"
-                                priority
-                            />
-                        </div>
+                    <div className="w-12 h-12 bg-elvora-teal rounded-xl flex items-center justify-center text-white font-black text-xl shadow-lg shadow-teal-500/20 transition-transform group-hover:scale-105">
+                        EC
                     </div>
                     <div className="flex flex-col">
                         <h1 className="text-xl font-bold leading-none tracking-tight text-zinc-900">
