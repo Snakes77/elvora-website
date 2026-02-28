@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+    <channel>
+        <title>Elvora Consulting - Care Sector News</title>
+        <description>Latest care sector news and regulatory updates</description>
+        <link>https://elvoraconsulting.co.uk</link>
+        <lastBuildDate>Mon, 22 Sep 2025 21:54:50 GMT</lastBuildDate>
+        <generator>Elvora CQC RSS Scraper</generator>
+        
+    <item>
+        <title><![CDATA[Eastbourne Care Home]]></title>
+        <description><![CDATA[5-7 Cobden Street, Darlington, County Durham, DL1 4JF(01325) 384646]]></description>
+        <link>https://www.cqc.org.uk/location/1-2503001605        </link>
+        <pubDate>Mon, 22 Sep 2025 21:54:50 GMT</pubDate>
+        <source>Care Homes</source>
+    </item>
+    <item>
+        <title><![CDATA[Heanton Nursing Home]]></title>
+        <description><![CDATA[Heanton, Barnstaple, Devon, EX31 4DJ(0117) 287 2566]]></description>
+        <link>https://www.cqc.org.uk/location/1-2436374171        </link>
+        <pubDate>Mon, 22 Sep 2025 21:54:50 GMT</pubDate>
+        <source>Care Homes</source>
+    </item>
+    <item>
+        <title><![CDATA[Fordingbridge Care Home]]></title>
+        <description><![CDATA[Station Road, Fordingbridge, Hampshire, SP6 1JW(01425) 333101]]></description>
+        <link>https://www.cqc.org.uk/location/1-484114822        </link>
+        <pubDate>Mon, 22 Sep 2025 21:54:50 GMT</pubDate>
+        <source>Care Homes</source>
+    </item>
+    <item>
+        <title><![CDATA[Blenheim Court Care Home]]></title>
+        <description><![CDATA[Elm Lane, Sheffield, South Yorkshire, S5 7TW(0114) 245 6026]]></description>
+        <link>https://www.cqc.org.uk/location/1-2622295482        </link>
+        <pubDate>Mon, 22 Sep 2025 21:54:50 GMT</pubDate>
+        <source>Care Homes</source>
+    </item>
+    <item>
+        <title><![CDATA[Muscliff Nursing Home]]></title>
+        <description><![CDATA[5 Tolpuddle Gardens, Bournemouth, Dorset, BH9 3RE(01202) 516999]]></description>
+        <link>https://www.cqc.org.uk/location/1-128696693        </link>
+        <pubDate>Mon, 22 Sep 2025 21:54:50 GMT</pubDate>
+        <source>Care Homes</source>
+    </item>
+    <item>
+        <title><![CDATA[Best practice]]></title>
+        <description><![CDATA[Managing constipation in adult social care settings]]></description>
+        <link>https://www.cqc.org.uk/guidance-providers/adult-social-care/managing-constipation-adult-social-care-settings</link>
+        <pubDate>Mon, 22 Sep 2025 21:54:50 GMT</pubDate>
+        <source>Adult Social Care</source>
+    </item>
+    </channel>
+</rss>

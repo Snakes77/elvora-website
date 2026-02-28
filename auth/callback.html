@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication Complete | Elvora Consulting</title>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #20B2AA 0%, #008B8B 100%);
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .auth-container {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+        }
+        .success-icon {
+            color: #20B2AA;
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        .btn {
+            background: #20B2AA;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 500;
+            transition: background 0.3s ease;
+        }
+        .btn:hover {
+            background: #008B8B;
+        }
+    </style>
+</head>
+<body>
+    <div class="auth-container">
+        <div class="success-icon">✅</div>
+        <h1>Authentication Complete!</h1>
+        <p>You have successfully connected your calendar to Elvora Consulting. You can now book consultations directly through our website.</p>
+        <a href="../index.html" class="btn">Return to Website</a>
+    </div>
+
+    <script>
+        // Handle the authentication callback
+        window.addEventListener('load', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const code = urlParams.get('code');
+            const error = urlParams.get('error');
+
+            if (error) {
+                document.querySelector('h1').textContent = 'Authentication Error';
+                document.querySelector('p').textContent = 'There was an error connecting your calendar. Please try again.';
+                document.querySelector('.success-icon').textContent = '❌';
+                document.querySelector('.success-icon').style.color = '#e74c3c';
+            } else if (code) {
+                // Exchange code for access token
+                exchangeCodeForToken(code);
+            }
+        });
+
+        async function exchangeCodeForToken(code) {
+            try {
+                const response = await fetch('/api/auth/token', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ code: code })
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    localStorage.setItem('ms365_access_token', data.access_token);
+                    localStorage.setItem('ms365_refresh_token', data.refresh_token);
+                } else {
+                    throw new Error('Token exchange failed');
+                }
+            } catch (error) {
+                console.error('Authentication error:', error);
+                document.querySelector('h1').textContent = 'Authentication Error';
+                document.querySelector('p').textContent = 'There was an error connecting your calendar. Please try again.';
+                document.querySelector('.success-icon').textContent = '❌';
+                document.querySelector('.success-icon').style.color = '#e74c3c';
+            }
+        }
+    </script>
+</body>
+</html>

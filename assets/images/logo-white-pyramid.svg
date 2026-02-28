@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <g fill="white">
+    <!-- Pyramid base -->
+    <path d="M32 4 L56 52 L8 52 Z" stroke="white" stroke-width="2" fill="none"/>
+
+    <!-- All-seeing eye circle -->
+    <circle cx="32" cy="20" r="8" stroke="white" stroke-width="2" fill="none"/>
+
+    <!-- Eye pupil -->
+    <circle cx="32" cy="20" r="3" fill="white"/>
+
+    <!-- Triangle frame around eye -->
+    <path d="M24 12 L40 12 L32 28 Z" stroke="white" stroke-width="2" fill="none"/>
+
+    <!-- Brick pattern in pyramid base -->
+    <path d="M16 44 L48 44 M20 40 L44 40 M24 36 L40 36 M28 32 L36 32" stroke="white" stroke-width="1.5"/>
+    <path d="M12 48 L52 48 M18 46 L46 46 M22 42 L42 42 M26 38 L38 38 M30 34 L34 34" stroke="white" stroke-width="1"/>
+  </g>
+</svg>

@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+@theme {
+    --color-elvora-teal: #0D9488;
+    --color-elvora-dark: #1A1A1A;
+    --color-elvora-light: #F5F5F5;
+
+    --font-figtree: var(--font-figtree);
+    --font-inter: var(--font-inter);
+    --font-poppins: var(--font-poppins);
+}
+
+:root {
+    --foreground-rgb: 26, 26, 26;
+    --background-start-rgb: 245, 245, 245;
+    --background-end-rgb: 255, 255, 255;
+}
+
+body {
+    color: rgb(var(--foreground-rgb));
+    background: white;
+}
+
+@layer components {
+    .glass {
+        background-color: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+}

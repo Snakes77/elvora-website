@@ -1,0 +1,98 @@
+# Environment Variables
+.env
+.env.local
+.env.development
+.env.production
+
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Production builds
+dist/
+build/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Operating System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+
+# Cache
+.cache/
+.parcel-cache/
+
+# Temporary files
+*.tmp
+*.temp
+temp/
+
+# Database
+*.sqlite
+*.db
+
+# Backup files
+*.bak
+*.backup
+
+# Next.js
+.next/
+out/
+next-env.d.ts
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+ENV/
+
+# Local Data
+*.json
+!package.json
+!package-lock.json
+!tsconfig.json
+!components.json
+!*.svg
+!*.png
+!*.jpg
+!*.jpeg
+
+# Env
+config.env
+.env.local
+
+# Scratch/Test Scripts
+test-*.py
+update_news*.sh
+cron_news_update.sh
+cqc_*.py
+auto_news_updater.py
+
+# Large Assets
+assets/videos/
+public/assets/videos/
