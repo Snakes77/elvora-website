@@ -242,8 +242,8 @@ export default function Home() {
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-24">
                         <div className="lg:col-span-1">
                             <div className="flex items-center gap-4 mb-8">
-                                <div className="w-14 h-14 bg-teal-600 rounded-2xl flex items-center justify-center text-white font-black text-2xl shadow-lg shadow-teal-500/20">
-                                    EC
+                                <div className="w-14 h-14 relative rounded-full overflow-hidden shadow-lg shadow-teal-500/20 border-2 border-white/10 bg-white">
+                                    <Image src="/icon.png" alt="Elvora Consulting Logo" fill className="object-cover" />
                                 </div>
                                 <div>
                                     <h3 className="text-white font-bold text-2xl leading-tight">Elvora <span className="text-zinc-500 font-light">Consulting</span></h3>
