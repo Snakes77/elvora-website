@@ -204,6 +204,17 @@ export default function Home() {
                                 </div>
                                 <div className="flex items-center gap-4">
                                     <div className="w-14 h-14 rounded-2xl bg-teal-500/10 border border-teal-500/20 flex items-center justify-center text-teal-400">
+                                        <Phone size={24} />
+                                    </div>
+                                    <div>
+                                        <div className="text-zinc-500 text-sm uppercase tracking-widest font-bold">Call Us</div>
+                                        <a href={`tel:${COMPANY_INFO.phone.replace(/\s/g, '')}`} className="text-xl font-bold text-white hover:text-teal-400 transition-colors">
+                                            {COMPANY_INFO.phone}
+                                        </a>
+                                    </div>
+                                </div>
+                                <div className="flex items-center gap-4">
+                                    <div className="w-14 h-14 rounded-2xl bg-teal-500/10 border border-teal-500/20 flex items-center justify-center text-teal-400">
                                         <Linkedin size={24} />
                                     </div>
                                     <div>
@@ -256,6 +267,9 @@ export default function Home() {
                             <div className="flex items-center gap-4">
                                 <a href={COMPANY_INFO.linkedin} target="_blank" className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-zinc-400 hover:text-white hover:border-teal-500/50 transition-all">
                                     <Linkedin size={20} />
+                                </a>
+                                <a href={`tel:${COMPANY_INFO.phone.replace(/\s/g, '')}`} className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-zinc-400 hover:text-white hover:border-teal-500/50 transition-all">
+                                    <Phone size={20} />
                                 </a>
                                 <a href={`mailto:${COMPANY_INFO.email}`} className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-zinc-400 hover:text-white hover:border-teal-500/50 transition-all">
                                     <Mail size={20} />

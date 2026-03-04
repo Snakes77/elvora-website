@@ -12,7 +12,8 @@ export async function POST(request: Request) {
   const resend = new Resend(resendApiKey);
 
   try {
-    const { firstName, lastName, email, service, message } = await request.json();
+    const { firstName, lastName, email, phone, service, message } = await request.json();
+    console.log('Form data:', { firstName, lastName, email, phone, service });
 
     const { data, error } = await resend.emails.send({
       from: `Elvora Contact <${process.env.FROM_EMAIL}>`,
@@ -23,6 +24,7 @@ export async function POST(request: Request) {
         <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e5e7eb; rounded: 12px;">
           <h2 style="color: #0d9488; margin-top: 0;">New Consultation Request</h2>
           <p><strong>From:</strong> ${firstName} ${lastName} (${email})</p>
+          ${phone ? `<p><strong>Phone:</strong> ${phone}</p>` : ''}
           <p><strong>Service Requested:</strong> ${service}</p>
           <div style="margin-top: 20px; padding: 15px; background-color: #f9fafb; border-radius: 8px;">
             <p style="margin-top: 0;"><strong>Message:</strong></p>

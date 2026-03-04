@@ -10,6 +10,7 @@ export const ContactForm = () => {
         firstName: "",
         lastName: "",
         email: "",
+        phone: "",
         service: "Select a service...",
         message: ""
     });
@@ -31,6 +32,7 @@ export const ContactForm = () => {
                     firstName: "",
                     lastName: "",
                     email: "",
+                    phone: "",
                     service: "Select a service...",
                     message: ""
                 });
@@ -90,16 +92,28 @@ export const ContactForm = () => {
                         />
                     </div>
                 </div>
-                <div className="space-y-2">
-                    <label className="text-sm font-bold text-zinc-900">Work Email</label>
-                    <input
-                        type="email"
-                        placeholder="john@carehome.com"
-                        className="w-full px-6 py-4 bg-zinc-50 border border-zinc-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all text-zinc-900"
-                        value={formData.email}
-                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        required
-                    />
+                <div className="grid md:grid-cols-2 gap-6">
+                    <div className="space-y-2">
+                        <label className="text-sm font-bold text-zinc-900">Work Email</label>
+                        <input
+                            type="email"
+                            placeholder="john@carehome.com"
+                            className="w-full px-6 py-4 bg-zinc-50 border border-zinc-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all text-zinc-900"
+                            value={formData.email}
+                            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                            required
+                        />
+                    </div>
+                    <div className="space-y-2">
+                        <label className="text-sm font-bold text-zinc-900">Phone Number (Optional)</label>
+                        <input
+                            type="tel"
+                            placeholder="0123 456 789"
+                            className="w-full px-6 py-4 bg-zinc-50 border border-zinc-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all text-zinc-900"
+                            value={formData.phone}
+                            onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                        />
+                    </div>
                 </div>
                 <div className="space-y-2">
                     <label className="text-sm font-bold text-zinc-900">Service Required</label>

@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Phone, Mail } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { COMPANY_INFO } from "@/lib/constants";
@@ -64,6 +64,12 @@ export const Header = () => {
                             Get Expert Consultation
                         </Link>
                         <a
+                            href={`tel:${COMPANY_INFO.phone.replace(/\s/g, '')}`}
+                            className="text-sm font-semibold text-zinc-600 hover:text-elvora-teal transition-colors"
+                        >
+                            {COMPANY_INFO.phone}
+                        </a>
+                        <a
                             href={`mailto:${COMPANY_INFO.email}`}
                             className="text-sm font-semibold text-elvora-teal hover:underline underline-offset-4"
                         >
@@ -102,11 +108,18 @@ export const Header = () => {
                             Get Expert Consultation
                         </Link>
                         <a
+                            href={`tel:${COMPANY_INFO.phone.replace(/\s/g, '')}`}
+                            className="text-base text-center font-bold text-zinc-900 py-2 border-b border-zinc-100"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                            Call: {COMPANY_INFO.phone}
+                        </a>
+                        <a
                             href={`mailto:${COMPANY_INFO.email}`}
                             className="text-base text-center font-bold text-elvora-teal py-2"
                             onClick={() => setIsMobileMenuOpen(false)}
                         >
-                            Email Us: {COMPANY_INFO.email}
+                            Email: {COMPANY_INFO.email}
                         </a>
                     </div>
                 </div>
