@@ -3,6 +3,7 @@ export const COMPANY_INFO = {
     fullName: "Elvora Consulting Limited",
     tagline: "Care Quality Excellence",
     email: "melissa@elvoraconsulting.co.uk",
+    phone: "0115 646 8587",
     linkedin: "https://www.linkedin.com/in/melissa-meakin-social-care-quality-consultant-3332a473/",
     companyNumber: "16528897",
     founder: {
