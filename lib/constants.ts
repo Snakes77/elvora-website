@@ -142,31 +142,22 @@ export const SERVICES = [
 
 export const TESTIMONIALS = [
     {
-        name: "",
-        role: "Registered Manager",
-        company: "Care Home, West Midlands",
+        name: "Susan",
+        role: "Home Manager",
+        company: "Residential Care Home",
         avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=face",
         rating: 5,
-        text: "Melissa's expertise transformed our inspection preparation. Her hands-on approach and deep understanding of care quality standards helped us achieve Outstanding ratings across multiple domains.",
-        results: ["Outstanding rating achieved", "100% compliance", "Improved staff morale"]
+        text: "Thank you so much, I had such a lovely day with you today, I only wish I had met you months ago, your passion and support given is so addictive and welcomed to want to drive any home manager to grow and improve",
+        results: ["Motivational mentorship", "Improved management focus", "Valuable guidance"]
     },
     {
-        name: "",
-        role: "Operations Director",
-        company: "Care Group, South East",
+        name: "Kev",
+        role: "Client",
+        company: "Care Home Service",
         avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
         rating: 5,
-        text: "The crisis management support from Melissa was invaluable. Her experience in regional crisis support gave us the confidence to navigate challenging regulatory interventions and secure our service's future.",
-        results: ["Crisis turnaround successful", "Regulatory confidence", "Risk mitigation"]
-    },
-    {
-        name: "",
-        role: "Managing Director",
-        company: "Care Home, London",
-        avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&h=150&fit=crop&crop=face",
-        rating: 5,
-        text: "Working with Melissa made all the difference. Her personal expertise as a former Registered Manager and current Nominated Individual goes beyond generic consultancy. She actually cares about the outcomes for our residents.",
-        results: ["Operational excellence", "Full audit compliance", "Bespoke guidance"]
+        text: "I couldn't be happier with the service I received from Melissa. Melissa was very knowledgeable and was able to share her experience in a way that really connects with the wider team. Our confidence has grown being able to deliver more personalised support",
+        results: ["Team connectivity improved", "Knowledgeable guidance", "Increased confidence"]
     }
 ];
 
