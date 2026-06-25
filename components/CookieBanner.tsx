@@ -31,7 +31,7 @@ export default function CookieBanner() {
                     </h4>
                     <p className="text-sm text-zinc-600 dark:text-zinc-400">
                         We use essential cookies to make our website work properly. By continuing to use our site, you agree to our use of cookies.{" "}
-                        <Link href="/cookie-policy" className="text-teal-500 hover:underline font-medium">
+                        <Link href="/cookie-policy" className="text-teal-500 hover:underline font-medium" aria-label="Learn more about our cookie policy">
                             Learn more
                         </Link>
                     </p>

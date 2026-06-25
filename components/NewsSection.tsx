@@ -2,6 +2,7 @@
 
 import { ExternalLink } from "lucide-react";
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 
 const NEWS_MOCK = [
     {
@@ -25,6 +26,26 @@ const NEWS_MOCK = [
 ];
 
 export default function NewsSection() {
+    const [news, setNews] = useState(NEWS_MOCK);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        let active = true;
+        fetch("/api/news")
+            .then((res) => res.json())
+            .then((data) => {
+                if (active && Array.isArray(data) && data.length > 0) {
+                    setNews(data);
+                }
+            })
+            .catch((err) => console.error("Error loading CQC news:", err))
+            .finally(() => {
+                if (active) setLoading(false);
+            });
+        return () => {
+            active = false;
+        };
+    }, []);
     return (
         <section className="py-24 bg-white dark:bg-zinc-950 overflow-hidden">
             <div className="container px-4 mx-auto relative z-10">
@@ -49,7 +70,7 @@ export default function NewsSection() {
                 </div>
 
                 <div className="grid md:grid-cols-3 gap-8">
-                    {NEWS_MOCK.map((item, index) => (
+                    {news.map((item, index) => (
                         <motion.div
                             key={index}
                             initial={{ opacity: 0, y: 20 }}
@@ -72,6 +93,7 @@ export default function NewsSection() {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="inline-flex items-center gap-2 text-teal-600 dark:text-teal-400 font-bold hover:gap-3 transition-all"
+                                aria-label={`Read more about CQC news: ${item.title}`}
                             >
                                 Read More <ExternalLink size={16} />
                             </a>
