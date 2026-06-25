@@ -28,7 +28,10 @@ export default function WarpShaderHero({
     const [isMounted, setIsMounted] = useState(false);
 
     useEffect(() => {
-        setIsMounted(true);
+        const timer = setTimeout(() => {
+            setIsMounted(true);
+        }, 1500);
+        return () => clearTimeout(timer);
     }, []);
 
     return (
@@ -41,7 +44,7 @@ export default function WarpShaderHero({
                         softness={1}
                         distortion={distortion}
                         swirl={0.8}
-                        swirlIterations={10}
+                        swirlIterations={3}
                         shape="checks"
                         shapeScale={0.1}
                         scale={1}
