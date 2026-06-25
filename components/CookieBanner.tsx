@@ -26,13 +26,13 @@ export default function CookieBanner() {
         <div className="fixed bottom-0 left-0 right-0 z-[100] p-4 md:p-6 animate-in fade-in slide-in-from-bottom-10 duration-500">
             <div className="max-w-4xl mx-auto bg-white/90 dark:bg-zinc-900/90 backdrop-blur-xl border border-teal-500/20 shadow-2xl rounded-2xl p-6 flex flex-col md:flex-row items-center justify-between gap-6 pointer-events-auto">
                 <div className="flex-1">
-                    <h4 className="text-lg font-bold text-teal-600 dark:text-teal-400 mb-2 flex items-center gap-2">
+                    <h2 className="text-lg font-bold text-teal-600 dark:text-teal-400 mb-2 flex items-center gap-2">
                         🍪 Cookie Notice
-                    </h4>
+                    </h2>
                     <p className="text-sm text-zinc-600 dark:text-zinc-400">
                         We use essential cookies to make our website work properly. By continuing to use our site, you agree to our use of cookies.{" "}
-                        <Link href="/cookie-policy" className="text-teal-500 hover:underline font-medium" aria-label="Learn more about our cookie policy">
-                            Learn more
+                        <Link href="/cookie-policy" className="text-teal-500 hover:underline font-medium">
+                            Learn more <span className="sr-only">about our cookie policy</span>
                         </Link>
                     </p>
                 </div>
@@ -52,6 +52,7 @@ export default function CookieBanner() {
                     <button
                         onClick={() => setIsVisible(false)}
                         className="hidden md:flex p-2 hover:bg-zinc-200 dark:hover:bg-zinc-800 rounded-full transition-colors text-zinc-400"
+                        aria-label="Close cookie notice"
                     >
                         <X size={20} />
                     </button>

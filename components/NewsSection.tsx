@@ -93,9 +93,8 @@ export default function NewsSection() {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="inline-flex items-center gap-2 text-teal-600 dark:text-teal-400 font-bold hover:gap-3 transition-all"
-                                aria-label={`Read more about CQC news: ${item.title}`}
                             >
-                                Read More <ExternalLink size={16} />
+                                Read More <span className="sr-only">about CQC news: {item.title}</span> <ExternalLink size={16} />
                             </a>
                         </motion.div>
                     ))}

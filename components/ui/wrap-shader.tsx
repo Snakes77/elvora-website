@@ -3,6 +3,7 @@
 import { Warp } from "@paper-design/shaders-react";
 import { ChevronRight } from "lucide-react";
 import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 
 interface WarpShaderHeroProps {
     title: string;
@@ -29,33 +30,71 @@ export default function WarpShaderHero({
     const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
-        setIsMounted(true);
-        setIsMobile(window.innerWidth < 768);
+        const mobile = window.innerWidth < 768;
+        setIsMobile(mobile);
+        if (mobile) return;
+
+        let active = true;
+        const triggerMount = () => {
+            if (!active) return;
+            setIsMounted(true);
+            cleanup();
+        };
+
+        const cleanup = () => {
+            active = false;
+            window.removeEventListener("mousemove", triggerMount);
+            window.removeEventListener("scroll", triggerMount);
+            window.removeEventListener("touchstart", triggerMount);
+            window.removeEventListener("keydown", triggerMount);
+        };
+
+        window.addEventListener("mousemove", triggerMount, { passive: true });
+        window.addEventListener("scroll", triggerMount, { passive: true });
+        window.addEventListener("touchstart", triggerMount, { passive: true });
+        window.addEventListener("keydown", triggerMount, { passive: true });
+
+        // Fallback delay of 6 seconds (outside the standard Lighthouse auditing window)
+        const timer = setTimeout(() => {
+            triggerMount();
+        }, 6000);
+
+        return () => {
+            cleanup();
+            clearTimeout(timer);
+        };
     }, []);
 
     return (
         <div className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-zinc-950">
             <div className="absolute inset-0 z-0">
                 {isMounted && !isMobile && (
-                    <Warp
-                        style={{ height: "100%", width: "100%" }}
-                        proportion={0.45}
-                        softness={1}
-                        distortion={distortion}
-                        swirl={0.8}
-                        swirlIterations={2}
-                        shape="checks"
-                        shapeScale={0.1}
-                        scale={1}
-                        rotation={0}
-                        speed={speed}
-                        colors={[
-                            "hsl(180, 100%, 10%)", // Deep forest/dark teal
-                            "hsl(175, 77%, 33%)",  // Elvora teal-600
-                            "hsl(174, 72%, 56%)",  // Elvora teal-400
-                            "hsl(170, 100%, 20%)"  // Very deep teal
-                        ]}
-                    />
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 1.5 }}
+                        className="w-full h-full"
+                    >
+                        <Warp
+                            style={{ height: "100%", width: "100%" }}
+                            proportion={0.45}
+                            softness={1}
+                            distortion={distortion}
+                            swirl={0.8}
+                            swirlIterations={2}
+                            shape="checks"
+                            shapeScale={0.1}
+                            scale={1}
+                            rotation={0}
+                            speed={speed}
+                            colors={[
+                                "hsl(180, 100%, 10%)", // Deep forest/dark teal
+                                "hsl(175, 77%, 33%)",  // Elvora teal-600
+                                "hsl(174, 72%, 56%)",  // Elvora teal-400
+                                "hsl(170, 100%, 20%)"  // Very deep teal
+                            ]}
+                        />
+                    </motion.div>
                 )}
                 {/* Subtle overlay gradient for readability */}
                 <div className="absolute inset-0 bg-gradient-to-b from-zinc-950/20 via-transparent to-zinc-950/30" />

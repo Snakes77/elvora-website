@@ -34,9 +34,9 @@ export const Header = () => {
                         <Image src="/icon.png" alt="Elvora Consulting Logo" fill className="object-cover" />
                     </div>
                     <div className="flex flex-col">
-                        <h1 className="text-xl font-bold leading-none tracking-tight text-zinc-900">
+                        <span className="text-xl font-bold leading-none tracking-tight text-zinc-900">
                             {COMPANY_INFO.name.split(" ")[0]} <span className="text-elvora-teal">Consulting</span>
-                        </h1>
+                        </span>
                         <span className="text-[10px] text-zinc-500 font-bold tracking-[0.2em] uppercase mt-1">
                             {COMPANY_INFO.tagline}
                         </span>

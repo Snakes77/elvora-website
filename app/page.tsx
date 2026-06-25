@@ -38,7 +38,7 @@ export default function Home() {
                         {COMPANY_INFO.stats.map((stat, idx) => (
                             <div key={idx} className="bg-white dark:bg-zinc-900 shadow-2xl rounded-3xl p-4 sm:p-6 lg:p-8 border border-zinc-100 dark:border-zinc-800 text-center transform hover:scale-105 transition-all">
                                 <div className="text-3xl sm:text-4xl font-black text-teal-600 dark:text-teal-400 mb-2">{stat.value}</div>
-                                <div className="text-zinc-500 dark:text-zinc-400 text-xs sm:text-sm font-bold uppercase tracking-widest">{stat.label}</div>
+                                <div className="text-zinc-600 dark:text-zinc-400 text-xs sm:text-sm font-bold uppercase tracking-widest">{stat.label}</div>
                             </div>
                         ))}
                     </div>
@@ -197,7 +197,7 @@ export default function Home() {
                                         <Mail size={24} />
                                     </div>
                                     <div>
-                                        <div className="text-zinc-500 text-sm uppercase tracking-widest font-bold">Email Us</div>
+                                        <div className="text-zinc-400 text-sm uppercase tracking-widest font-bold">Email Us</div>
                                         <a href={`mailto:${COMPANY_INFO.email}`} className="text-xl font-bold text-white hover:text-teal-400 transition-colors">
                                             {COMPANY_INFO.email}
                                         </a>
@@ -208,7 +208,7 @@ export default function Home() {
                                         <Phone size={24} />
                                     </div>
                                     <div>
-                                        <div className="text-zinc-500 text-sm uppercase tracking-widest font-bold">Call Us</div>
+                                        <div className="text-zinc-400 text-sm uppercase tracking-widest font-bold">Call Us</div>
                                         <a href={`tel:${COMPANY_INFO.phone.replace(/\s/g, '')}`} className="text-xl font-bold text-white hover:text-teal-400 transition-colors">
                                             {COMPANY_INFO.phone}
                                         </a>
@@ -219,7 +219,7 @@ export default function Home() {
                                         <Linkedin size={24} />
                                     </div>
                                     <div>
-                                        <div className="text-zinc-500 text-sm uppercase tracking-widest font-bold">Follow Us</div>
+                                        <div className="text-zinc-400 text-sm uppercase tracking-widest font-bold">Follow Us</div>
                                         <a href={COMPANY_INFO.linkedin} target="_blank" className="text-xl font-bold text-white hover:text-teal-400 transition-colors">
                                             Melissa Meakin (LinkedIn)
                                         </a>
@@ -230,12 +230,12 @@ export default function Home() {
                             <div className="grid grid-cols-2 gap-6 p-8 rounded-3xl bg-white/5 border border-white/10">
                                 <div className="flex flex-col gap-2">
                                     <ShieldCheck className="text-teal-500" />
-                                    <h4 className="font-bold text-white">Action Plan</h4>
+                                    <h3 className="font-bold text-white text-base">Action Plan</h3>
                                     <p className="text-xs text-zinc-400">Clear steps to address challenges.</p>
                                 </div>
                                 <div className="flex flex-col gap-2">
                                     <Star className="text-teal-500" />
-                                    <h4 className="font-bold text-white">Expert Guidance</h4>
+                                    <h3 className="font-bold text-white text-base">Expert Guidance</h3>
                                     <p className="text-xs text-zinc-400">Direct access to 20+ years experience.</p>
                                 </div>
                             </div>
@@ -258,7 +258,7 @@ export default function Home() {
                                     <Image src="/icon.png" alt="Elvora Consulting Logo" fill className="object-cover" />
                                 </div>
                                 <div>
-                                    <h3 className="text-white font-bold text-2xl leading-tight">Elvora <span className="text-zinc-500 font-light">Consulting</span></h3>
+                                    <span className="text-white font-bold text-2xl leading-tight block">Elvora <span className="text-zinc-500 font-light">Consulting</span></span>
                                     <p className="text-teal-500 text-[10px] tracking-[0.2em] uppercase font-bold mt-1">Care Quality Excellence</p>
                                 </div>
                             </div>
@@ -279,7 +279,7 @@ export default function Home() {
                         </div>
 
                         <div>
-                            <h4 className="text-white font-bold mb-8 uppercase tracking-widest text-sm">Services</h4>
+                            <span className="text-white font-bold mb-8 uppercase tracking-widest text-sm block">Services</span>
                             <ul className="space-y-4">
                                 {SERVICES.slice(0, 5).map(s => (
                                     <li key={s.id}>
@@ -290,7 +290,7 @@ export default function Home() {
                         </div>
 
                         <div>
-                            <h4 className="text-white font-bold mb-8 uppercase tracking-widest text-sm">Quick Links</h4>
+                            <span className="text-white font-bold mb-8 uppercase tracking-widest text-sm block">Quick Links</span>
                             <ul className="space-y-4">
                                 <li><a href="/" className="text-zinc-400 hover:text-teal-400 transition-colors text-sm">Home</a></li>
                                 <li><a href="#about" className="text-zinc-400 hover:text-teal-400 transition-colors text-sm">About</a></li>
@@ -300,7 +300,7 @@ export default function Home() {
                         </div>
 
                         <div>
-                            <h4 className="text-white font-bold mb-8 uppercase tracking-widest text-sm">Legal</h4>
+                            <span className="text-white font-bold mb-8 uppercase tracking-widest text-sm block">Legal</span>
                             <ul className="space-y-4">
                                 <li><a href="/privacy-policy" className="text-zinc-400 hover:text-teal-400 transition-colors text-sm">Privacy Policy</a></li>
                                 <li><a href="/terms-conditions" className="text-zinc-400 hover:text-teal-400 transition-colors text-sm">Terms & Conditions</a></li>
@@ -326,7 +326,7 @@ export default function Home() {
                                 <span className="opacity-60 hidden md:block">Data-driven automation</span>
                             </p>
                         </div>
-                        <p className="text-zinc-700 text-[9px] max-w-2xl mx-auto italic leading-relaxed">
+                        <p className="text-zinc-400 text-[9px] max-w-2xl mx-auto italic leading-relaxed">
                             Elvora Consulting is a specialist provider of CQC compliance, crisis management, and Outstanding rating support for healthcare providers across the United Kingdom.
                         </p>
                     </div>
