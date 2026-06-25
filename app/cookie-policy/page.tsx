@@ -1,5 +1,12 @@
 import { Header } from "@/components/Header";
 import { COMPANY_INFO } from "@/lib/constants";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Cookie Policy | Elvora Consulting",
+    description: "How Elvora Consulting uses cookies. We use essential cookies only, in line with PECR and UK GDPR.",
+    alternates: { canonical: "/cookie-policy" },
+};
 
 export default function CookiePolicy() {
     return (

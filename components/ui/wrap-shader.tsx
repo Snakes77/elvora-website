@@ -1,9 +1,17 @@
 "use client";
 
-import { Warp } from "@paper-design/shaders-react";
+import dynamic from "next/dynamic";
 import { ChevronRight } from "lucide-react";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+
+// Code split the shader library out of the initial bundle. It is gated behind
+// isMounted and skipped on mobile, so it must not ship in the first load JS.
+// This cuts the "reduce unused JavaScript" cost that was holding mobile LCP.
+const Warp = dynamic(
+    () => import("@paper-design/shaders-react").then((m) => m.Warp),
+    { ssr: false }
+);
 
 interface WarpShaderHeroProps {
     title: string;

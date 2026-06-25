@@ -305,9 +305,15 @@ export default function Home() {
                                 <li><a href="/privacy-policy" className="text-zinc-400 hover:text-teal-400 transition-colors text-sm">Privacy Policy</a></li>
                                 <li><a href="/terms-conditions" className="text-zinc-400 hover:text-teal-400 transition-colors text-sm">Terms & Conditions</a></li>
                                 <li><a href="/cookie-policy" className="text-zinc-400 hover:text-teal-400 transition-colors text-sm">Cookie Policy</a></li>
+                                <li><a href="/accessibility" className="text-zinc-400 hover:text-teal-400 transition-colors text-sm">Accessibility</a></li>
                             </ul>
-                            <div className="mt-8 pt-8 border-t border-white/5">
-                                <p className="text-zinc-600 text-[10px] uppercase tracking-tighter">Company Reg: {COMPANY_INFO.companyNumber}</p>
+                            <div className="mt-8 pt-8 border-t border-white/5 space-y-1">
+                                <p className="text-zinc-500 text-[10px] leading-relaxed">
+                                    {COMPANY_INFO.fullName}, registered in {COMPANY_INFO.placeOfRegistration}, company number {COMPANY_INFO.companyNumber}.
+                                </p>
+                                <p className="text-zinc-500 text-[10px] leading-relaxed">
+                                    Registered office: {COMPANY_INFO.registeredOffice}.
+                                </p>
                             </div>
                         </div>
                     </div>

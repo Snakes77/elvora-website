@@ -1,6 +1,13 @@
 import { Header } from "@/components/Header";
 import { COMPANY_INFO } from "@/lib/constants";
 import { Mail, Linkedin } from "lucide-react";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Privacy Policy | Elvora Consulting",
+    description: "How Elvora Consulting Limited collects, uses, and protects your personal data under UK GDPR and the Data Protection Act 2018.",
+    alternates: { canonical: "/privacy-policy" },
+};
 
 export default function PrivacyPolicy() {
     return (
@@ -50,6 +57,9 @@ export default function PrivacyPolicy() {
                                 <li>To provide independent care quality consultancy services;</li>
                                 <li>To respond to your enquiries and service requests.</li>
                             </ul>
+                            <p className="mt-4">
+                                Our lawful bases for processing your Data under the UK GDPR are: your consent (which you may withdraw at any time); the performance of a contract with you, or steps taken at your request before entering a contract; and our legitimate interests in operating and improving our consultancy services, where these are not overridden by your rights. Where we send marketing communications, we rely on your consent.
+                            </p>
                         </section>
 
                         <section>
@@ -64,15 +74,18 @@ export default function PrivacyPolicy() {
 
                         <section>
                             <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mb-4">5. Your Rights</h2>
-                            <p>You have the right to request access to, correction of, or erasure of your personal Data. You also have the right to restrict or object to our use of your Data. To exercise these rights, please contact us at {COMPANY_INFO.email}.</p>
+                            <p>You have the right to request access to, correction of, or erasure of your personal Data. You also have the right to restrict or object to our use of your Data, and the right to data portability. To exercise these rights, please contact us at {COMPANY_INFO.email}.</p>
+                            <p className="mt-4">
+                                If you are unhappy with how we have handled your personal Data, you have the right to complain to the Information Commissioner's Office (ICO), the UK supervisory authority for data protection, at <a href="https://ico.org.uk/make-a-complaint/" target="_blank" rel="noopener noreferrer" className="text-teal-600 dark:text-teal-400 hover:underline">ico.org.uk</a> or on 0303 123 1113.
+                            </p>
                         </section>
 
                         <section>
                             <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mb-4">6. Contact Information</h2>
                             <div className="bg-zinc-50 dark:bg-zinc-900 p-8 rounded-3xl border border-zinc-200 dark:border-zinc-800">
                                 <p className="font-bold text-zinc-900 dark:text-white mb-2">Data Protection Officer: {COMPANY_INFO.founder.name}</p>
-                                <p className="text-sm">{COMPANY_INFO.fullName}</p>
-                                <p className="text-sm">Company Registration: {COMPANY_INFO.companyNumber}</p>
+                                <p className="text-sm">{COMPANY_INFO.fullName}, registered in {COMPANY_INFO.placeOfRegistration}, company number {COMPANY_INFO.companyNumber}.</p>
+                                <p className="text-sm">Registered office: {COMPANY_INFO.registeredOffice}.</p>
                                 <a href={`mailto:${COMPANY_INFO.email}`} className="text-teal-600 dark:text-teal-400 hover:underline">{COMPANY_INFO.email}</a>
                             </div>
                         </section>

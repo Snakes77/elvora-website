@@ -154,12 +154,10 @@ export function PremiumTestimonials() {
                                         {/* Client Info */}
                                         <div className="flex-shrink-0 text-center md:text-left">
                                             <div className="relative mb-6">
-                                                <div className="w-28 h-28 mx-auto md:mx-0 rounded-full overflow-hidden border-4 border-teal-500/20 shadow-xl">
-                                                    <img
-                                                        src={TESTIMONIALS[currentIndex].avatar}
-                                                        alt={TESTIMONIALS[currentIndex].role}
-                                                        className="w-full h-full object-cover"
-                                                    />
+                                                <div className="w-28 h-28 mx-auto md:mx-0 rounded-full overflow-hidden border-4 border-teal-500/20 shadow-xl bg-teal-600 flex items-center justify-center">
+                                                    <span className="text-white text-4xl font-black select-none" aria-hidden="true">
+                                                        {TESTIMONIALS[currentIndex].name.charAt(0)}
+                                                    </span>
                                                 </div>
                                                 <motion.div
                                                     className="absolute -inset-2 border border-teal-500/10 rounded-full"

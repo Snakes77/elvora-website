@@ -1,5 +1,12 @@
 import { Header } from "@/components/Header";
 import { COMPANY_INFO } from "@/lib/constants";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Terms & Conditions | Elvora Consulting",
+    description: "The terms governing use of the Elvora Consulting website and services.",
+    alternates: { canonical: "/terms-conditions" },
+};
 
 export default function TermsConditions() {
     return (

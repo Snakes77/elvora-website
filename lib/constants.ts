@@ -6,6 +6,8 @@ export const COMPANY_INFO = {
     phone: "0115 646 8587",
     linkedin: "https://www.linkedin.com/in/melissa-meakin-social-care-quality-consultant-3332a473/",
     companyNumber: "16528897",
+    placeOfRegistration: "England and Wales",
+    registeredOffice: "128 City Road, London, EC1V 2NX",
     founder: {
         name: "Melissa Meakin",
         title: "Care Quality Consultant",
@@ -146,7 +148,6 @@ export const TESTIMONIALS = [
         name: "Susan",
         role: "Home Manager",
         company: "Residential Care Home",
-        avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=face",
         rating: 5,
         text: "Thank you so much, I had such a lovely day with you today, I only wish I had met you months ago, your passion and support given is so addictive and welcomed to want to drive any home manager to grow and improve",
         results: ["Motivational mentorship", "Improved management focus", "Valuable guidance"]
@@ -155,7 +156,6 @@ export const TESTIMONIALS = [
         name: "Kev",
         role: "Client",
         company: "Care Home Service",
-        avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
         rating: 5,
         text: "I couldn't be happier with the service I received from Melissa. Melissa was very knowledgeable and was able to share her experience in a way that really connects with the wider team. Our confidence has grown being able to deliver more personalised support",
         results: ["Team connectivity improved", "Knowledgeable guidance", "Increased confidence"]
