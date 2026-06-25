@@ -26,25 +26,24 @@ export default function WarpShaderHero({
     speed = 1,
 }: WarpShaderHeroProps) {
     const [isMounted, setIsMounted] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
-        const timer = setTimeout(() => {
-            setIsMounted(true);
-        }, 1500);
-        return () => clearTimeout(timer);
+        setIsMounted(true);
+        setIsMobile(window.innerWidth < 768);
     }, []);
 
     return (
         <div className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-zinc-950">
             <div className="absolute inset-0 z-0">
-                {isMounted && (
+                {isMounted && !isMobile && (
                     <Warp
                         style={{ height: "100%", width: "100%" }}
                         proportion={0.45}
                         softness={1}
                         distortion={distortion}
                         swirl={0.8}
-                        swirlIterations={3}
+                        swirlIterations={2}
                         shape="checks"
                         shapeScale={0.1}
                         scale={1}
