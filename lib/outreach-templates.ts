@@ -29,7 +29,18 @@ const PHONE = '0115 646 8587';
 // The circular logo used in the live website header
 const LOGO_URL = 'https://elvoraconsulting.co.uk/icon.png';
 
-const signature = `
+export const getSignatureHTML = (config: {
+  name?: string;
+  role?: string;
+  phone?: string;
+  email?: string;
+}) => {
+  const name = config.name || 'Melissa Meakin';
+  const role = config.role || 'CARE CONSULTANT';
+  const phone = config.phone || PHONE;
+  const emailAddress = config.email || 'melissa@elvoraconsulting.co.uk';
+
+  return `
   <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;font-family:Arial,Helvetica,sans-serif;width:640px;max-width:640px;margin-top:24px;">
     <!-- TOP RULE -->
     <tr>
@@ -73,9 +84,9 @@ const signature = `
           <!-- Header zone: 68px fixed height — name + role centred here -->
           <tr>
             <td valign="middle" height="68" style="height:68px;padding:0;">
-              <div style="font-size:16px;font-weight:700;color:#1F2937;margin:0 0 7px 0;line-height:1.2;">Melissa Meakin</div>
+              <div style="font-size:16px;font-weight:700;color:#1F2937;margin:0 0 7px 0;line-height:1.2;">${name}</div>
               <div style="font-size:11px;font-weight:700;color:#0F8B8D;text-transform:uppercase;letter-spacing:1.6px;line-height:1.3;">
-                CARE CONSULTANT&nbsp;&nbsp;|&nbsp;&nbsp;ELVORA CONSULTING
+                ${role}&nbsp;&nbsp;|&nbsp;&nbsp;ELVORA CONSULTING
               </div>
             </td>
           </tr>
@@ -86,11 +97,11 @@ const signature = `
               <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;font-size:12px;color:#1F2937;line-height:1.85;">
                 <tr>
                   <td width="22" valign="top" style="font-weight:700;padding-right:4px;white-space:nowrap;color:#1F2937;">T:</td>
-                  <td style="color:#1F2937;">${PHONE}</td>
+                  <td style="color:#1F2937;">${phone}</td>
                 </tr>
                 <tr>
                   <td width="22" valign="top" style="font-weight:700;padding-right:4px;white-space:nowrap;color:#1F2937;">E:</td>
-                  <td><a href="mailto:melissa@elvoraconsulting.co.uk" style="color:#0F8B8D;text-decoration:none;">melissa@elvoraconsulting.co.uk</a></td>
+                  <td><a href="mailto:${emailAddress}" style="color:#0F8B8D;text-decoration:none;">${emailAddress}</a></td>
                 </tr>
                 <tr>
                   <td width="22" valign="top" style="font-weight:700;padding-right:4px;white-space:nowrap;color:#1F2937;">W:</td>
@@ -110,6 +121,9 @@ const signature = `
     </tr>
   </table>
 `;
+};
+
+const signature = getSignatureHTML({});
 
 const bookingButton = (label = 'Book a 20 Minute Call') => `
   <div style="margin: 24px 0;">
@@ -195,20 +209,33 @@ export const OutreachTemplates = {
           <p>You're welcome to reach out at any time at <a href="mailto:melissa@elvoraconsulting.co.uk" style="color: #0D7377;">melissa@elvoraconsulting.co.uk</a> or visit <a href="https://elvoraconsulting.co.uk" style="color: #0D7377;">elvoraconsulting.co.uk</a>. Or simply use the link below if a call ever suits.</p>
           ${bookingButton("Book a Call Whenever You're Ready")}
           ${signature}
-          <br/>
-          <p style="font-size: 13px; color: #888;"><em>P.S. As I won't be emailing again, I'll remove you from my outreach list – in line with GDPR. Your details will not be used for any other purpose.</em></p>
         </div>
       `
     };
   }
 };
 
-export const getTemplateForPhase = (phase: number, lead: LeadConfig) => {
+const unsubscribeLink = (leadId: string) => `
+  <div style="margin-top: 32px; border-top: 1px solid #e5e7eb; padding-top: 16px; font-size: 11px; color: #9ca3af; text-align: center;">
+    You are receiving this because we met at the My Homecare AGM. 
+    <br/>
+    No longer wish to receive these? <a href="https://elvoraconsulting.co.uk/api/outreach/unsubscribe?id=${leadId}" style="color: #0F8B8D; text-decoration: underline;">Unsubscribe here</a>
+  </div>
+`;
+
+export const getTemplateForPhase = (phase: number, leadId: string, lead: LeadConfig) => {
+  let template;
   switch (phase) {
-    case 1: return OutreachTemplates.Phase1_WarmOpen(lead);
-    case 2: return OutreachTemplates.Phase2_Value(lead);
-    case 3: return OutreachTemplates.Phase3_SocialProof(lead);
-    case 4: return OutreachTemplates.Phase4_Breakup(lead);
+    case 1: template = OutreachTemplates.Phase1_WarmOpen(lead); break;
+    case 2: template = OutreachTemplates.Phase2_Value(lead); break;
+    case 3: template = OutreachTemplates.Phase3_SocialProof(lead); break;
+    case 4: template = OutreachTemplates.Phase4_Breakup(lead); break;
     default: return null;
   }
+
+  // Inject unsubscribe link at the end of the HTML
+  return {
+    ...template,
+    html: template.html + unsubscribeLink(leadId)
+  };
 };

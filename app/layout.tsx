@@ -11,6 +11,10 @@ const figtree = Figtree({
 });
 
 export const metadata: Metadata = {
+    metadataBase: new URL("https://www.elvoraconsulting.co.uk"),
+    alternates: {
+        canonical: "/",
+    },
     title: COMPANY_INFO.metadata.title,
     description: COMPANY_INFO.metadata.description,
     keywords: COMPANY_INFO.metadata.keywords,
@@ -18,7 +22,7 @@ export const metadata: Metadata = {
         title: COMPANY_INFO.metadata.title,
         description: COMPANY_INFO.metadata.description,
         type: "website",
-        url: "https://elvoraconsulting.co.uk",
+        url: "https://www.elvoraconsulting.co.uk",
         siteName: "Elvora Consulting",
     },
     twitter: {
@@ -34,6 +38,9 @@ export const metadata: Metadata = {
         apple: [
             { url: "/apple-icon.png", type: "image/png" },
         ],
+    },
+    verification: {
+        google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || process.env.GOOGLE_SITE_VERIFICATION || "",
     },
 };
 
@@ -55,9 +62,9 @@ export default function RootLayout({
                             "@context": "https://schema.org",
                             "@type": "LocalBusiness",
                             "name": COMPANY_INFO.fullName,
-                            "image": "https://elvoraconsulting.co.uk/assets/images/logo-color.png",
-                            "@id": "https://elvoraconsulting.co.uk",
-                            "url": "https://elvoraconsulting.co.uk",
+                            "image": "https://www.elvoraconsulting.co.uk/assets/images/logo-color.png",
+                            "@id": "https://www.elvoraconsulting.co.uk",
+                            "url": "https://www.elvoraconsulting.co.uk",
                             "telephone": "",
                             "address": {
                                 "@type": "PostalAddress",
