@@ -84,6 +84,7 @@ export default function Home() {
                                 <a
                                     href="#contact"
                                     className="inline-flex items-center gap-2 text-teal-600 dark:text-teal-400 font-bold text-sm group/btn"
+                                    aria-label={`Learn more about ${service.title}`}
                                 >
                                     Learn More <ChevronRight size={16} className="group-hover/btn:translate-x-1 transition-transform" />
                                 </a>
@@ -265,13 +266,13 @@ export default function Home() {
                                 Independent care quality consultancy helping care homes achieve Outstanding ratings through practical compliance guidance.
                             </p>
                             <div className="flex items-center gap-4">
-                                <a href={COMPANY_INFO.linkedin} target="_blank" className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-zinc-400 hover:text-white hover:border-teal-500/50 transition-all">
+                                <a href={COMPANY_INFO.linkedin} target="_blank" className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-zinc-400 hover:text-white hover:border-teal-500/50 transition-all" aria-label="Melissa Meakin on LinkedIn">
                                     <Linkedin size={20} />
                                 </a>
-                                <a href={`tel:${COMPANY_INFO.phone.replace(/\s/g, '')}`} className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-zinc-400 hover:text-white hover:border-teal-500/50 transition-all">
+                                <a href={`tel:${COMPANY_INFO.phone.replace(/\s/g, '')}`} className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-zinc-400 hover:text-white hover:border-teal-500/50 transition-all" aria-label="Call Elvora Consulting">
                                     <Phone size={20} />
                                 </a>
-                                <a href={`mailto:${COMPANY_INFO.email}`} className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-zinc-400 hover:text-white hover:border-teal-500/50 transition-all">
+                                <a href={`mailto:${COMPANY_INFO.email}`} className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-zinc-400 hover:text-white hover:border-teal-500/50 transition-all" aria-label="Email Elvora Consulting">
                                     <Mail size={20} />
                                 </a>
                             </div>

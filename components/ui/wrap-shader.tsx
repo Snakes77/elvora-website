@@ -2,6 +2,7 @@
 
 import { Warp } from "@paper-design/shaders-react";
 import { ChevronRight } from "lucide-react";
+import { useState, useEffect } from "react";
 
 interface WarpShaderHeroProps {
     title: string;
@@ -24,28 +25,36 @@ export default function WarpShaderHero({
     distortion = 0.25,
     speed = 1,
 }: WarpShaderHeroProps) {
+    const [isMounted, setIsMounted] = useState(false);
+
+    useEffect(() => {
+        setIsMounted(true);
+    }, []);
+
     return (
         <div className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-zinc-950">
             <div className="absolute inset-0 z-0">
-                <Warp
-                    style={{ height: "100%", width: "100%" }}
-                    proportion={0.45}
-                    softness={1}
-                    distortion={distortion}
-                    swirl={0.8}
-                    swirlIterations={10}
-                    shape="checks"
-                    shapeScale={0.1}
-                    scale={1}
-                    rotation={0}
-                    speed={speed}
-                    colors={[
-                        "hsl(180, 100%, 10%)", // Deep forest/dark teal
-                        "hsl(175, 77%, 33%)",  // Elvora teal-600
-                        "hsl(174, 72%, 56%)",  // Elvora teal-400
-                        "hsl(170, 100%, 20%)"  // Very deep teal
-                    ]}
-                />
+                {isMounted && (
+                    <Warp
+                        style={{ height: "100%", width: "100%" }}
+                        proportion={0.45}
+                        softness={1}
+                        distortion={distortion}
+                        swirl={0.8}
+                        swirlIterations={10}
+                        shape="checks"
+                        shapeScale={0.1}
+                        scale={1}
+                        rotation={0}
+                        speed={speed}
+                        colors={[
+                            "hsl(180, 100%, 10%)", // Deep forest/dark teal
+                            "hsl(175, 77%, 33%)",  // Elvora teal-600
+                            "hsl(174, 72%, 56%)",  // Elvora teal-400
+                            "hsl(170, 100%, 20%)"  // Very deep teal
+                        ]}
+                    />
+                )}
                 {/* Subtle overlay gradient for readability */}
                 <div className="absolute inset-0 bg-gradient-to-b from-zinc-950/20 via-transparent to-zinc-950/30" />
             </div>

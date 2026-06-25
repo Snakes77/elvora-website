@@ -79,20 +79,7 @@ export function PremiumTestimonials() {
         <section id="testimonials" className="relative py-32 bg-zinc-950 text-white overflow-hidden">
             {/* Background Effects */}
             <div className="absolute inset-0 z-0">
-                <motion.div
-                    className="absolute inset-0 bg-gradient-to-br from-teal-500/[0.05] via-zinc-950 to-emerald-500/[0.05]"
-                    animate={{
-                        backgroundPosition: ['0% 0%', '100% 100%', '0% 0%'],
-                    }}
-                    transition={{
-                        duration: 20,
-                        repeat: Infinity,
-                        ease: "linear"
-                    }}
-                    style={{
-                        backgroundSize: '400% 400%'
-                    }}
-                />
+                <div className="absolute inset-0 bg-gradient-to-br from-teal-500/[0.05] via-zinc-950 to-emerald-500/[0.05]" />
 
                 {/* Light Orbs */}
                 <motion.div
@@ -234,10 +221,11 @@ export function PremiumTestimonials() {
                         <button
                             onClick={prevTestimonial}
                             className="p-4 rounded-full bg-white/[0.05] border border-white/[0.1] text-white hover:bg-teal-600 transition-all hover:scale-110 shadow-lg"
+                            aria-label="Previous testimonial"
                         >
                             <ArrowLeft className="w-5 h-5" />
                         </button>
-
+ 
                         <div className="flex gap-4">
                             {TESTIMONIALS.map((_, index) => (
                                 <button
@@ -250,13 +238,15 @@ export function PremiumTestimonials() {
                                         ? 'bg-teal-400 w-8'
                                         : 'bg-white/20 hover:bg-white/40'
                                         }`}
+                                    aria-label={`Go to testimonial ${index + 1}`}
                                 />
                             ))}
                         </div>
-
+ 
                         <button
                             onClick={nextTestimonial}
                             className="p-4 rounded-full bg-white/[0.05] border border-white/[0.1] text-white hover:bg-teal-600 transition-all hover:scale-110 shadow-lg"
+                            aria-label="Next testimonial"
                         >
                             <ArrowRight className="w-5 h-5" />
                         </button>

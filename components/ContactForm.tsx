@@ -70,8 +70,9 @@ export const ContactForm = () => {
             <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                     <div className="space-y-2">
-                        <label className="text-sm font-bold text-zinc-900">First Name</label>
+                        <label htmlFor="first-name" className="text-sm font-bold text-zinc-900">First Name</label>
                         <input
+                            id="first-name"
                             type="text"
                             placeholder="John"
                             className="w-full px-6 py-4 bg-zinc-50 border border-zinc-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all text-zinc-900"
@@ -81,8 +82,9 @@ export const ContactForm = () => {
                         />
                     </div>
                     <div className="space-y-2">
-                        <label className="text-sm font-bold text-zinc-900">Last Name</label>
+                        <label htmlFor="last-name" className="text-sm font-bold text-zinc-900">Last Name</label>
                         <input
+                            id="last-name"
                             type="text"
                             placeholder="Doe"
                             className="w-full px-6 py-4 bg-zinc-50 border border-zinc-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all text-zinc-900"
@@ -94,8 +96,9 @@ export const ContactForm = () => {
                 </div>
                 <div className="grid md:grid-cols-2 gap-6">
                     <div className="space-y-2">
-                        <label className="text-sm font-bold text-zinc-900">Work Email</label>
+                        <label htmlFor="email" className="text-sm font-bold text-zinc-900">Work Email</label>
                         <input
+                            id="email"
                             type="email"
                             placeholder="john@carehome.com"
                             className="w-full px-6 py-4 bg-zinc-50 border border-zinc-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all text-zinc-900"
@@ -105,8 +108,9 @@ export const ContactForm = () => {
                         />
                     </div>
                     <div className="space-y-2">
-                        <label className="text-sm font-bold text-zinc-900">Phone Number (Optional)</label>
+                        <label htmlFor="phone" className="text-sm font-bold text-zinc-900">Phone Number (Optional)</label>
                         <input
+                            id="phone"
                             type="tel"
                             placeholder="0123 456 789"
                             className="w-full px-6 py-4 bg-zinc-50 border border-zinc-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all text-zinc-900"
@@ -116,8 +120,9 @@ export const ContactForm = () => {
                     </div>
                 </div>
                 <div className="space-y-2">
-                    <label className="text-sm font-bold text-zinc-900">Service Required</label>
+                    <label htmlFor="service-select" className="text-sm font-bold text-zinc-900">Service Required</label>
                     <select
+                        id="service-select"
                         className="w-full px-6 py-4 bg-zinc-50 border border-zinc-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all text-zinc-900 appearance-none bg-no-repeat bg-[right_1.5rem_center] cursor-pointer"
                         value={formData.service}
                         onChange={(e) => setFormData({ ...formData, service: e.target.value })}
@@ -128,8 +133,9 @@ export const ContactForm = () => {
                     </select>
                 </div>
                 <div className="space-y-2">
-                    <label className="text-sm font-bold text-zinc-900">Message</label>
+                    <label htmlFor="message" className="text-sm font-bold text-zinc-900">Message</label>
                     <textarea
+                        id="message"
                         rows={4}
                         placeholder="How can we help you?"
                         className="w-full px-6 py-4 bg-zinc-50 border border-zinc-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all text-zinc-900"
