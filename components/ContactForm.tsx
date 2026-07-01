@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { Mail, Linkedin, ShieldCheck, Star, Loader2, CheckCircle2 } from "lucide-react";
 import { COMPANY_INFO, SERVICES } from "@/lib/constants";
+import { trackEvent, newEventId } from "@/lib/metaPixel";
 
 export const ContactForm = () => {
     const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
@@ -18,16 +19,18 @@ export const ContactForm = () => {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setStatus("loading");
+        const eventId = newEventId();
 
         try {
             const response = await fetch("/api/send", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(formData)
+                body: JSON.stringify({ ...formData, eventId })
             });
 
             if (response.ok) {
                 setStatus("success");
+                trackEvent("Lead", { content_name: formData.service }, eventId);
                 setFormData({
                     firstName: "",
                     lastName: "",

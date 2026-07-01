@@ -1,5 +1,35 @@
 import { Resend } from 'resend';
 import { NextResponse } from 'next/server';
+import crypto from 'crypto';
+
+const META_PIXEL_ID = '1546630560246377';
+const sha256 = (v?: string) =>
+  v ? crypto.createHash('sha256').update(v.trim().toLowerCase()).digest('hex') : undefined;
+
+async function fireCapiLead(opts: { email?: string; phone?: string; eventId?: string; sourceUrl?: string }) {
+  const token = process.env.META_CAPI_TOKEN_ELVORA;
+  if (!token) return;
+  const user_data: Record<string, string[]> = {};
+  const em = sha256(opts.email); if (em) user_data.em = [em];
+  const ph = sha256(opts.phone?.replace(/\s+/g, '')); if (ph) user_data.ph = [ph];
+  const body = {
+    data: [{
+      event_name: 'Lead',
+      event_time: Math.floor(Date.now() / 1000),
+      action_source: 'website',
+      event_source_url: opts.sourceUrl,
+      event_id: opts.eventId,
+      user_data,
+    }],
+  };
+  try {
+    await fetch(`https://graph.facebook.com/v21.0/${META_PIXEL_ID}/events?access_token=${token}`, {
+      method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body),
+    });
+  } catch (err) {
+    console.error('Meta CAPI Lead failed', err);
+  }
+}
 
 export async function POST(request: Request) {
   const resendApiKey = process.env.RESEND_API_KEY;
@@ -12,7 +42,7 @@ export async function POST(request: Request) {
   const resend = new Resend(resendApiKey);
 
   try {
-    const { firstName, lastName, email, phone, service, message } = await request.json();
+    const { firstName, lastName, email, phone, service, message, eventId } = await request.json();
     console.log('Form data:', { firstName, lastName, email, phone, service });
 
     const { data, error } = await resend.emails.send({
@@ -39,6 +69,13 @@ export async function POST(request: Request) {
     if (error) {
       return NextResponse.json({ error }, { status: 500 });
     }
+
+    await fireCapiLead({
+      email,
+      phone,
+      eventId,
+      sourceUrl: request.headers.get('referer') || 'https://www.elvoraconsulting.co.uk',
+    });
 
     return NextResponse.json({ data });
   } catch (error) {

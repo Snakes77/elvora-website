@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Figtree } from "next/font/google";
 import "./globals.css";
 import { COMPANY_INFO } from "@/lib/constants";
+import MetaPixel from "@/components/MetaPixel";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const figtree = Figtree({
@@ -97,6 +98,7 @@ export default function RootLayout({
                         })
                     }}
                 />
+                <MetaPixel />
                 {children}
             </body>
         </html>
